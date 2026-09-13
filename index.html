@@ -1,40 +1,321 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>E-Commerce Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase | Modern E-Commerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>E-Commerce Application</h1>
-        <p>Online Shopping Platform</p>
+    <header class="navbar">
+        <a href="#" class="logo">Shop<span>Ease</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#deals">Deals</a>
+        </nav>
+
+        <button class="cart-button" id="cartButton" aria-label="Open shopping cart">
+            🛒 Cart <span id="cartCount">0</span>
+        </button>
     </header>
 
     <main>
-        <input type="text" placeholder="Search products">
-        <h2>Featured Products</h2>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">SMART SHOPPING • BETTER CHOICES</p>
+                <h1>Everything you need,<br><span>all in one place.</span></h1>
+                <p>Discover useful products at great prices with a clean, simple shopping experience.</p>
+                <a href="#products" class="primary-button">Shop Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+                     alt="Modern smartwatch">
+            </div>
+        </section>
 
-        <div class="products">
-            <div class="product">
-                <h3>Wireless Headphones</h3>
-                <p>₹1,999</p>
-                <button>Add to Cart</button>
+        <section class="shop-section" id="products">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">OUR COLLECTION</p>
+                    <h2>Featured Products</h2>
+                    <p>Find products selected for everyday use.</p>
+                </div>
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+                </div>
             </div>
 
-            <div class="product">
-                <h3>Smart Watch</h3>
-                <p>₹2,499</p>
-                <button>Add to Cart</button>
+            <div class="categories" id="categories">
+                <button class="category active" data-category="All">All</button>
+                <button class="category" data-category="Electronics">Electronics</button>
+                <button class="category" data-category="Accessories">Accessories</button>
+                <button class="category" data-category="Lifestyle">Lifestyle</button>
             </div>
 
-            <div class="product">
-                <h3>Backpack</h3>
-                <p>₹999</p>
-                <button>Add to Cart</button>
+            <div class="products" id="productGrid">
+                <article class="product" data-category="Electronics" data-name="Wireless Headphones">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85" alt="Wireless Headphones">
+                        <span class="badge">Popular</span>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Electronics</p>
+                        <h3>Wireless Headphones</h3>
+                        <p class="description">Comfortable sound with a modern wireless design.</p>
+                        <div class="product-bottom">
+                            <strong>₹1,999</strong>
+                            <button class="add-cart" data-name="Wireless Headphones" data-price="1999">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product" data-category="Electronics" data-name="Smart Watch">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85" alt="Smart Watch">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Electronics</p>
+                        <h3>Smart Watch</h3>
+                        <p class="description">A stylish everyday smartwatch for your active routine.</p>
+                        <div class="product-bottom">
+                            <strong>₹2,499</strong>
+                            <button class="add-cart" data-name="Smart Watch" data-price="2499">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product" data-category="Accessories" data-name="Classic Backpack">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85" alt="Classic Backpack">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Accessories</p>
+                        <h3>Classic Backpack</h3>
+                        <p class="description">A practical backpack for college, work and travel.</p>
+                        <div class="product-bottom">
+                            <strong>₹999</strong>
+                            <button class="add-cart" data-name="Classic Backpack" data-price="999">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product" data-category="Lifestyle" data-name="Ceramic Coffee Mug">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=700&q=85" alt="Ceramic Coffee Mug">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Lifestyle</p>
+                        <h3>Ceramic Coffee Mug</h3>
+                        <p class="description">A simple, elegant mug for your daily coffee break.</p>
+                        <div class="product-bottom">
+                            <strong>₹499</strong>
+                            <button class="add-cart" data-name="Ceramic Coffee Mug" data-price="499">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product" data-category="Electronics" data-name="Portable Speaker">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85" alt="Portable Speaker">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Electronics</p>
+                        <h3>Portable Speaker</h3>
+                        <p class="description">Compact wireless audio for music wherever you go.</p>
+                        <div class="product-bottom">
+                            <strong>₹1,499</strong>
+                            <button class="add-cart" data-name="Portable Speaker" data-price="1499">Add to Cart</button>
+                        </div>
+                    </article>
+
+                <article class="product" data-category="Accessories" data-name="Minimal Wallet">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=700&q=85" alt="Minimal Wallet">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Accessories</p>
+                        <h3>Minimal Wallet</h3>
+                        <p class="description">Slim everyday wallet with a clean, timeless look.</p>
+                        <div class="product-bottom">
+                            <strong>₹799</strong>
+                            <button class="add-cart" data-name="Minimal Wallet" data-price="799">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </div>
+
+            <p id="noResults" class="no-results">No products found. Try another search.</p>
+        </section>
+
+        <section class="deal-banner" id="deals">
+            <div>
+                <p class="eyebrow">LIMITED TIME</p>
+                <h2>Upgrade your everyday essentials.</h2>
+                <p>Quality products, simple shopping and prices that make sense.</p>
+            </div>
+            <a href="#products" class="secondary-button">Explore Products</a>
+        </section>
     </main>
 
+    <footer>
+        <p>© 2026 ShopEase • Modern E-Commerce Application</p>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <div>
+                <p class="eyebrow">YOUR BAG</p>
+                <h2>Shopping Cart</h2>
+            </div>
+            <button class="close-cart" id="closeCart" aria-label="Close cart">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+            <button class="checkout-button" id="checkoutButton">Proceed to Checkout</button>
+        </div>
+    </aside>
+
+    <script>
+        const products = [...document.querySelectorAll(".product")];
+        const searchInput = document.getElementById("searchInput");
+        const categoryButtons = document.querySelectorAll(".category");
+        const noResults = document.getElementById("noResults");
+
+        let selectedCategory = "All";
+        let cart = [];
+
+        function filterProducts() {
+            const search = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            products.forEach(product => {
+                const name = product.dataset.name.toLowerCase();
+                const category = product.dataset.category;
+                const matchesSearch = name.includes(search);
+                const matchesCategory = selectedCategory === "All" || category === selectedCategory;
+                const show = matchesSearch && matchesCategory;
+
+                product.style.display = show ? "" : "flex";
+                if (show) visibleCount++;
+            });
+
+            noResults.style.display = visibleCount ? "none" : "block";
+        }
+
+        searchInput.addEventListener("input", filterProducts);
+
+        categoryButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                categoryButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                selectedCategory = button.dataset.category;
+                filterProducts();
+            });
+        });
+
+        function updateCart() {
+            const cartItems = document.getElementById("cartItems");
+            const cartCount = document.getElementById("cartCount");
+            const cartTotal = document.getElementById("cartTotal");
+
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            if (!cart.length) {
+                cartItems.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+                cartTotal.textContent = "₹0";
+                return;
+            }
+
+            cartItems.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <div>
+                        <h4>${item.name}</h4>
+                        <p>₹${item.price.toLocaleString("en-IN")} × ${item.quantity}</p>
+                    </div>
+                    <div class="quantity">
+                        <button onclick="changeQuantity(${index}, -1)">−</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+                </div>
+            `).join("");
+
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            cartTotal.textContent = "₹" + total.toLocaleString("en-IN");
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+
+            updateCart();
+            openCart();
+        }
+
+        function changeQuantity(index, amount) {
+            cart[index].quantity += amount;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            updateCart();
+        }
+
+        document.querySelectorAll(".add-cart").forEach(button => {
+            button.addEventListener("click", () => {
+                addToCart(button.dataset.name, Number(button.dataset.price));
+            });
+        });
+
+        const cartSidebar = document.getElementById("cartSidebar");
+        const overlay = document.getElementById("overlay");
+
+        function openCart() {
+            cartSidebar.classList.add("open");
+            overlay.classList.add("show");
+            document.body.classList.add("cart-open");
+        }
+
+        function closeCart() {
+            cartSidebar.classList.remove("open");
+            overlay.classList.remove("show");
+            document.body.classList.remove("cart-open");
+        }
+
+        document.getElementById("cartButton").addEventListener("click", openCart);
+        document.getElementById("closeCart").addEventListener("click", closeCart);
+        overlay.addEventListener("click", closeCart);
+
+        document.getElementById("checkoutButton").addEventListener("click", () => {
+            if (!cart.length) {
+                alert("Your cart is empty.");
+                return;
+            }
+            alert("Demo checkout: your order is ready to be processed!");
+        });
+
+        updateCart();
+    </script>
 </body>
 </html>
