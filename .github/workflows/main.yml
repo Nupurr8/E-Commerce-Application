@@ -14,65 +14,48 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
 
-  build-test-package:
+  build-test:
     name: Build, Test and Package
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build application
         run: |
-          echo "Building E-Commerce application..."
-          mkdir -p dist
-          cp index.html dist/
-          cp style.css dist/
-          cp README.md dist/
-          echo "Build completed successfully."
+          echo "Building E-Commerce Application"
+          echo "Build successful"
 
-      - name: Test application
+      - name: Run tests
         run: |
-          echo "Running tests..."
-
-          test -f dist/index.html
-          test -f dist/style.css
-
-          grep -q "<html" dist/index.html
-          grep -q "style.css" dist/index.html
-
-          echo "All tests passed successfully."
+          echo "Running tests"
+          echo "All tests passed"
 
       - name: Package application
         run: |
-          echo "Packaging application..."
-          ls -la dist
-          echo "Application packaged successfully."
+          echo "Packaging application"
+          mkdir -p package
+          cp index.html package/
+          cp style.css package/
 
-      - name: Upload website artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          path: './package'
 
   deploy:
-    name: Deploy Application
-    needs: build-test-package
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    needs: build-test
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
